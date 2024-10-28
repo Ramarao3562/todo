@@ -8,7 +8,7 @@ pipeline {
                     branches: [[name: '*/main']],  // Update this to your branch name
                     userRemoteConfigs: [[
                         url: 'https://github.com/Ramarao3562/todo.git',
-                        credentialsId: 'your-credentials-id'  // Update to your actual credentials ID
+                        credentialsId: '445f8c81-0683-457c-98ba-31756a8be5c8'  // Update to your actual credentials ID
                     ]]
                 ])
             }
@@ -30,9 +30,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Your deployment steps here
-                sh '''
-                npx gh-pages -d build -r https://github.com/Ramarao3562/todo.git -b gh-pages --user "Your Name <youremail@example.com>"
-                '''
+               // Install gh-pages package
+        sh 'npm install gh-pages --save-dev'
+
+        // Build the project
+        sh 'npm run build'
+
+        // Deploy to GitHub Pages
+        sh '''
+        npx gh-pages -d build -r https://github.com/Ramarao3562/todo.git -b gh-pages --user "Ramarao3562 <atchi912@example.com>"
+        '''
             }
         }
     }
