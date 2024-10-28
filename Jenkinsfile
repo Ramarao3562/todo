@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git url: 'https://github.com/your-username/your-react-repo.git', credentialsId: 'your-credentials-id'
+                git url: 'https://github.com/Ramarao3562/todo.git', credentialsId: '445f8c81-0683-457c-98ba-31756a8be5c8'
             }
         }
         
