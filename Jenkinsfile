@@ -30,6 +30,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Your deployment steps here
+                sh '''
+                npx gh-pages -d build -r https://github.com/Ramarao3562/todo.git -b gh-pages --user "Your Name <youremail@example.com>"
+                '''
             }
         }
     }
